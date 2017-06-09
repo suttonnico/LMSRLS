@@ -1,17 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="626dcc42-6be5-4c0e-be65-59a993757bca" name="Default" comment="first upload">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/LMSRLS.iml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+    <list default="true" id="626dcc42-6be5-4c0e-be65-59a993757bca" name="Default" comment="">
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/desktop.ini" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/juegoPASA.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/pasa.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ploteador.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tp1PASA.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -231,6 +222,14 @@
       <option name="presentableId" value="Default" />
       <updated>1496970065101</updated>
     </task>
+    <task id="LOCAL-00001" summary="first upload">
+      <created>1496970380939</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1496970380939</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -258,6 +257,10 @@
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="first upload" />
+    <option name="LAST_COMMIT_MESSAGE" value="first upload" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
