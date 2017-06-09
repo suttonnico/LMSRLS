@@ -2,7 +2,23 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="626dcc42-6be5-4c0e-be65-59a993757bca" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/Thumbs.db" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/b.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/eb.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/ex.wav" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/itba-sede.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/laser.wav" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/music.wav" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/p2.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/sa.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/sa2.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/sa3.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/ufo.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/ufo1.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/ufo2.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/ufo3.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/data/desktop.ini" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -236,7 +252,14 @@
       <option name="project" value="LOCAL" />
       <updated>1496970398198</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="first upload">
+      <created>1496970413061</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1496970413061</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="ToolWindowManager">
