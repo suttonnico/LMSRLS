@@ -137,10 +137,10 @@ class Bullet(Sprite):
                 for sprite in sprite_list:
                         if hasattr(sprite,"alien"):
                                 other_rectangle=Rectangle(sprite.x,sprite.y,sprite.width,sprite.height)
-                               # kill_list.append(sprite)
+                                kill_list.append(sprite)
                                 if rectangular_intersection(self_rectangle,other_rectangle):
                                         kill_list.append(sprite)
-                                        ex.play()
+                                        #ex.play()
                                         if self not in kill_list:
                                                 kill_list.append(self)
                                                 bn-=1

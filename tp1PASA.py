@@ -24,15 +24,42 @@ def rls(u, d, M, lam, w, P):
     P = in_lam * (P - np.dot(np.dot(k, np.transpose(u)),P))
     return w, P
 
+
+def vff_rls(u, d, M, lam, w, P, se, sv, sq):
+    y = np.dot(u, w)
+    e = +d[M - 1] - y
+    q = np.dot(np.transpose(u), np.dot(P, u))
+    Ka = 2.5
+    a = 1 - 1 / (Ka * M)
+
+    se = a * se + (1 - a) * e ** 2
+    KB = 2.6
+    B = 1 - 1 / (KB * M)
+    sq = a * sq + (1-a) * q ** 2
+    sv = B * sv + (1-B) * e ** 2
+    lam = sq * sv / (np.abs((se - sv))+0.01)
+    if lam > 0.95:
+        lam = 0.95
+    if lam < 0.85:
+        lam = 0.85
+    #print lam
+    in_lam =  1.0/lam
+    lambda1Pu = in_lam * np.dot(P, u)
+    k = lambda1Pu / (1 + np.dot(np.transpose(u), lambda1Pu))
+    xi = d[M - 1] - np.dot(w, u)
+    w += k * np.conj(xi);
+    P = in_lam * (P - np.dot(np.dot(k, np.transpose(u)),P))
+    return w, P, se, sv, sq
+
 juegoPASA.setup()
 prev_pos = 0
-M = 4
+M = 40
 ul = np.zeros(20000)
 dl = np.zeros(20000)
 yl = np.zeros(20000)
 u = np.zeros(M)
 d = np.zeros(M)
-w = 2*(np.random.rand(M)-0.5) #np.zeros(M)
+w = np.zeros(M) #0.4*(np.random.rand(M)-0.5) #np.zeros(M)
 J = np.zeros(200000)
 mu = math.pow(10,-1)
 p_sign = np.zeros(M) + 0.2
@@ -44,14 +71,17 @@ pos_in=0
 ac = 0
 posicion = 0
 #RLS
-lam = 0.9
+lam = 0.95
 rlsDelta = 0.1
 P = np.eye(M) / rlsDelta
 ind = 0
+se = 5
+sv = 1
+sq = 5
 while juegoPASA.done==0:
     deltax=0#.1*(np.random.rand()-0.5)
     deltay=0
-    disparo=0
+    disparo=1
     dif = 0
     ac = ac*0.95
     arriba,abajo,izquierda,derecha,espacio=juegoPASA.readKey()
@@ -82,12 +112,13 @@ while juegoPASA.done==0:
     posicion=juegoPASA.loop(deltax_in/3.2,deltay,disparo)
     delta_after = (posicion - prev_pos)
 
-
-#    for i in range(0,1):
-    #[y,JD,w] = lms(u, d, M, mu,1, w)
-    [w,P] = rls(u, d, M,lam , w,P)
     u[0] = delta_after
     u = np.roll(u, -1)
+
+    #[y,JD,w] = lms(u, d, M, mu,1, w)
+    [w,P,se,sv,sq] = vff_rls(u, d, M,lam , w,P,se,sv,sq)
+    #u[0] = delta_after
+    #u = np.roll(u, -1)
 
     yl[0] = deltax_in
     yl = np.roll(yl, -1)
@@ -96,12 +127,12 @@ while juegoPASA.done==0:
     J[ind] = math.pow(d[M-1]-u[M-1],2)
     #J = np.roll(J, -1)
     ind += 1
-    time.sleep(0.02 )
+    #time.sleep(0.02 )
 juegoPASA.end()
 plt.figure()
 plt.plot(ul,label='Respuesta del sistema')
 plt.plot(dl,label='Respuesta deseada')
-plt.plot(yl,label='Entrada al sistema')
+#plt.plot(yl,label='Entrada al sistema')
 plt.legend(loc='upper center')
 plt.title('Senales en tiempo')
 plt.xlabel('tiempo')
