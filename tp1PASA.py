@@ -64,10 +64,10 @@ def vff_rls(u, d, M, lam, w, P, se, sv, sq):
     y = np.dot(u, w)
     e = +d[M - 1] - y
     q = np.dot(np.transpose(u), np.dot(P, u))
-    Ka = 10
+    Ka = 2
     a = 1 - 1 / (Ka * M)
     se = a * se + (1 - a) * e ** 2
-    KB = 5.01
+    KB = 2.01
     B = 1 - 1 / (KB * M)
     sq = a * sq + (1-a) * q ** 2
     sv = B * sv + (1-B) * e ** 2
@@ -121,9 +121,9 @@ def one_run(rep):
     rlsDelta = 0.1
     P = np.eye(M) / rlsDelta
     ind = 0
-    se = 0.00173047648723
-    sv = 0.0017380598538
-    sq = 0.911555360456
+    se = 0.0173047648723
+    sv = 0.016380598538
+    sq = 6.911555360456
     while 1:
 
 
