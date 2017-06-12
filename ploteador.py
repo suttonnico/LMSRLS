@@ -10,101 +10,102 @@ def averager(x,n):
             y[i]+= x[i+j]
         y[i] /= (2 * (n + 1))
     return y
-
-with open('JNLMS1.csv', 'rb') as csvfile:
+JVFFRLS = np.zeros(20000)
+with open('VFFRLS0.csv', 'rb') as csvfile:
     data_set = csv.reader(csvfile, delimiter=',')
     for row in data_set:
         J1 = row
-with open('JNLMS2.csv', 'rb') as csvfile:
-    data_set = csv.reader(csvfile, delimiter=',')
-    for row in data_set:
-        J2 = row
-with open('JNLMS3.csv', 'rb') as csvfile:
-    data_set = csv.reader(csvfile, delimiter=',')
-    for row in data_set:
-        J3 = row
-with open('JNLMS4.csv', 'rb') as csvfile:
-    data_set = csv.reader(csvfile, delimiter=',')
-    for row in data_set:
-        J4 = row
-with open('JNLMS5.csv', 'rb') as csvfile:
-    data_set = csv.reader(csvfile, delimiter=',')
-    for row in data_set:
-        J5 = row
-with open('JNLMS6.csv', 'rb') as csvfile:
-    data_set = csv.reader(csvfile, delimiter=',')
-    for row in data_set:
-        J6 = row
-JNLMS = np.zeros(20000)
-for i in range(0,20000):
-    JNLMS[i] = (float(J1[i])+float(J2[i])+float(J3[i])+float(J4[i])+float(J5[i])+float(J6[i])) / 6
+    for i in range(0, 20000):
+        JVFFRLS[i] = float(J1[i])
+JVFFRLS = averager(JVFFRLS,30)
 
-with open('JLMS1.csv', 'rb') as csvfile:
+JRLS = np.zeros(20000)
+with open('RLS0.csv', 'rb') as csvfile:
     data_set = csv.reader(csvfile, delimiter=',')
     for row in data_set:
         J1 = row
-with open('JLMS2.csv', 'rb') as csvfile:
-    data_set = csv.reader(csvfile, delimiter=',')
-    for row in data_set:
-        J2 = row
-with open('JLMS3.csv', 'rb') as csvfile:
-    data_set = csv.reader(csvfile, delimiter=',')
-    for row in data_set:
-        J3 = row
-with open('JLMS4.csv', 'rb') as csvfile:
-    data_set = csv.reader(csvfile, delimiter=',')
-    for row in data_set:
-        J4 = row
-with open('JLMS5.csv', 'rb') as csvfile:
-    data_set = csv.reader(csvfile, delimiter=',')
-    for row in data_set:
-        J5 = row
-with open('JLMS6.csv', 'rb') as csvfile:
-    data_set = csv.reader(csvfile, delimiter=',')
-    for row in data_set:
-        J6 = row
-JLMS = np.zeros(20000)
-for i in range(0,20000):
-    JLMS[i] = (float(J1[i])+float(J2[i])+float(J3[i])+float(J4[i])+float(J5[i])+float(J6[i])) / 6
 
+    for i in range(0, 20000):
+        JRLS[i] = float(J1[i])
 
-with open('JSIN1.csv', 'rb') as csvfile:
+JRLS = averager(JRLS, 10)
+
+JRLSl9900 = np.zeros(20000)
+with open('RLSl9900.csv', 'rb') as csvfile:
     data_set = csv.reader(csvfile, delimiter=',')
     for row in data_set:
         J1 = row
-with open('JSIN2.csv', 'rb') as csvfile:
+
+    for i in range(0, 20000):
+        JRLSl9900[i] = float(J1[i])
+
+JRLSl9900 = averager(JRLSl9900, 30)
+
+JRLSl950 = np.zeros(20000)
+with open('RLSl950.csv', 'rb') as csvfile:
     data_set = csv.reader(csvfile, delimiter=',')
     for row in data_set:
-        J2 = row
-with open('JSIN3.csv', 'rb') as csvfile:
-    data_set = csv.reader(csvfile, delimiter=',')
-    for row in data_set:
-        J3 = row
-with open('JSIN4.csv', 'rb') as csvfile:
-    data_set = csv.reader(csvfile, delimiter=',')
-    for row in data_set:
-        J4 = row
-with open('JSIN5.csv', 'rb') as csvfile:
-    data_set = csv.reader(csvfile, delimiter=',')
-    for row in data_set:
-        J5 = row
-with open('JSIN6.csv', 'rb') as csvfile:
-    data_set = csv.reader(csvfile, delimiter=',')
-    for row in data_set:
-        J6 = row
-JSIN = np.zeros(20000)
-for i in range(0,20000):
-    JSIN[i] = (float(J1[i])+float(J2[i])+float(J3[i])+float(J4[i])+float(J5[i])+float(J6[i])) / 6
+        J1 = row
+
+    for i in range(0, 20000):
+        JRLSl950[i] = float(J1[i])
+
+JRLSl950 = averager(JRLSl950, 30)
 
 
-JNLMS=averager(JNLMS,10)
-JLMS=averager(JLMS,10)
-JSIN=averager(JSIN,10)
-print JNLMS
+JRLSl900 = np.zeros(20000)
+with open('RLSl900.csv', 'rb') as csvfile:
+    data_set = csv.reader(csvfile, delimiter=',')
+    for row in data_set:
+        J1 = row
+
+    for i in range(0, 20000):
+        JRLSl900[i] = float(J1[i])
+
+JRLSl900 = averager(JRLSl900, 30)
+
+
+JRLSl850 = np.zeros(20000)
+with open('RLSl850.csv', 'rb') as csvfile:
+    data_set = csv.reader(csvfile, delimiter=',')
+    for row in data_set:
+        J1 = row
+
+    for i in range(0, 20000):
+        JRLSl850[i] = float(J1[i])
+
+JRLSl850 = averager(JRLSl850, 30)
+
+
+JRLSl800 = np.zeros(20000)
+with open('RLSl80.csv', 'rb') as csvfile:
+    data_set = csv.reader(csvfile, delimiter=',')
+    for row in data_set:
+        J1 = row
+
+    for i in range(0, 20000):
+        JRLSl800[i] = float(J1[i])
+
+JRLSl800 = averager(JRLSl800, 30)
+
+
+
+
 plt.figure()
-plt.plot(JNLMS,label='NLMS')
-plt.plot(JLMS,label='LMS')
-plt.plot(JSIN,label='SIN CONTROL')
+plt.semilogy(JRLSl800,label='l=0.80')
+plt.semilogy(JRLSl850,label='l=0.85')
+plt.semilogy(JRLSl900,label='l=0.90')
+plt.semilogy(JRLSl950,label='l=0.95')
+plt.semilogy(JRLSl9900,label='l=0.99')
+plt.semilogy(JVFFRLS,label='VFFRLS')
+plt.legend(loc='upper center')
+plt.title('J')
+plt.xlabel('n')
+plt.ylabel('Amp')
+
+plt.figure()
+plt.semilogy(JVFFRLS,label='VFFRLS')
+plt.semilogy(JRLS,label='RLS')
 plt.legend(loc='upper center')
 plt.title('J')
 plt.xlabel('tiempo')
