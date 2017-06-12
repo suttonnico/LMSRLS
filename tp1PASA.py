@@ -67,13 +67,13 @@ def vff_rls(u, d, M, lam, w, P, se, sv, sq):
     Ka = 2
     a = 1 - 1 / (Ka * M)
     se = a * se + (1 - a) * e ** 2
-    KB = 2.01
+    KB = 3.01
     B = 1 - 1 / (KB * M)
     sq = a * sq + (1-a) * q ** 2
     sv = B * sv + (1-B) * e ** 2
-    lam = sq * sv / (np.abs((se - sv))+0.00000001)
-    if lam >= 0.95:
-        lam = 0.95
+    lam = sq * sv / (np.abs((se - sv))+0.00000001)/6
+    if lam >= 0.96:
+        lam = 0.96
     if lam <= 0.7:
         lam = 0.7
     in_lam =  1.0/lam
@@ -121,9 +121,9 @@ def one_run(rep):
     rlsDelta = 0.1
     P = np.eye(M) / rlsDelta
     ind = 0
-    se = 0.0173047648723
-    sv = 0.016380598538
-    sq = 6.911555360456
+    se = 1.173047648723
+    sv = 188.91380598538
+    sq = 188.911555360456
     while 1:
 
 
@@ -180,16 +180,6 @@ def one_run(rep):
         ind += 1
         #time.sleep(0.01 )
         if ind == 6000:
-            plt.figure()
-            plt.plot(sel)
-            plt.title('se')
-            plt.figure()
-            plt.plot(svl)
-            plt.title('sv')
-            plt.figure()
-            plt.plot(sql)
-            plt.title('sq')
-            plt.show()
             finish(juegoPASA, dl, yl, ul, J, w, rep, laml)
             juegoPASA.end()
             break
