@@ -35,7 +35,7 @@ def finish(juegoPASA,dl,yl,ul,J,w,rep, laml):
     with open(save_str, 'wb') as csvfile:
         spamwriter = csv.writer(csvfile, delimiter=',',quotechar='|', quoting=csv.QUOTE_MINIMAL)
         spamwriter.writerow(J)
-    with open('d.csv', 'wb') as csvfile:
+    with open('d1.csv', 'wb') as csvfile:
         spamwriter = csv.writer(csvfile, delimiter=',',quotechar='|', quoting=csv.QUOTE_MINIMAL)
         spamwriter.writerow(dl)
     print("Su puntaje fue: " + str(juegoPASA.score) + "puntos")
@@ -64,14 +64,15 @@ def vff_rls(u, d, M, lam, w, P, se, sv, sq):
     y = np.dot(u, w)
     e = +d[M - 1] - y
     q = np.dot(np.transpose(u), np.dot(P, u))
-    Ka = 2
-    a = 1 - 1 / (Ka * M)
+    Ka = 4
+    M=4
+    a = 1 - 1 / (Ka*M )
     se = a * se + (1 - a) * e ** 2
-    KB = 3.01
-    B = 1 - 1 / (KB * M)
+    KB = 5.01
+    B = 1 - 1 / (KB *M)
     sq = a * sq + (1-a) * q ** 2
     sv = B * sv + (1-B) * e ** 2
-    lam = sq * sv / (np.abs((se - sv))+0.00000001)/6
+    lam = np.sqrt(sq) * np.sqrt(sv) / (np.abs((np.sqrt(se) - np.sqrt(sv)))+0.00000001)/3
     if lam >= 0.96:
         lam = 0.96
     if lam <= 0.7:
@@ -148,7 +149,7 @@ def one_run(rep):
         if espacio==1:
             disparo=1
 
-        deltax += float(d_in[ind])
+        deltax += dif#float(d_in[ind])
         d[0] = deltax
         d = np.roll(d,-1)
 
@@ -178,7 +179,7 @@ def one_run(rep):
         J[ind] = math.pow(d[M-1]-u[M-1],2)
         #J = np.roll(J, -1)
         ind += 1
-        #time.sleep(0.01 )
+        time.sleep(0.01 )
         if ind == 6000:
             finish(juegoPASA, dl, yl, ul, J, w, rep, laml)
             juegoPASA.end()
